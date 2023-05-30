@@ -83,13 +83,9 @@ table th {
     font-weight: bold;
 }
 
-table input:checked + .tarefa {
+.concluido {
     text-decoration: line-through;
     color: green;
     font-weight: bold;
-}
-
-li {
-    justify-content: center;
 }
 

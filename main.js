@@ -6,16 +6,11 @@ form.addEventListener('submit', function(e){
     e.preventDefault();
 
     AddLinha();
-    atualizaTabela();   
+    atualizaTabela();
+    concluido()   
 
-    $('tr').on('click', 'td', function() {
-        $(this).addClass('tarefa');
-    });
 
 })
-
-
-    
 
 function AddLinha(){
     const inputNomeTarefa = document.getElementById('nome-tarefa');
@@ -29,9 +24,8 @@ function AddLinha(){
 
     let linha = '<tr>'
     linha += `<td>                              
-                    <input type="checkbox" class = "trigger-input" id="concluido"/>
-                        <div class="tarefa">
-                        <label for="concluido" >${inputNomeTarefa.value}</label>
+                <div class="tarefa">
+                    <label for="concluido" >${inputNomeTarefa.value}</label>
                     </div>       
                 <td>`;
     linha += `</tr>`;
@@ -48,7 +42,11 @@ function atualizaTabela(){
 }
 
 
-
+function concluido(){
+    $('label').on('click', function() {
+        $('label').addClass('concluido');
+    });
+}
 
 
 
