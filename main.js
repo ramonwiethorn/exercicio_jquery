@@ -43,7 +43,7 @@ function atualizaTabela(){
 
 
 function concluido(){
-    $('label').on('click', function() {
+    $('tr').on('click', function() {
         $('label').addClass('concluido');
     });
 }
