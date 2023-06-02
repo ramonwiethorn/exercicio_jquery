@@ -79,13 +79,11 @@ table th {
 }
 
 .tarefa {
-    color: red;
-    font-weight: bold;
+        font-weight: bold;
 }
 
 .concluido {
     text-decoration: line-through;
-    color: green;
     font-weight: bold;
 }
 

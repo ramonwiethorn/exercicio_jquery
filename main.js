@@ -1,52 +1,38 @@
-const form = document.getElementById('form-tarefa');
 const tarefas = [];
-let linhas = '';
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    AddLinha();
-    atualizaTabela();
-    concluido()   
+$(document).ready(function () {
+    $('#form-tarefa').on('submit', function (e) {
+        e.preventDefault();
 
 
-})
 
-function AddLinha(){
-    const inputNomeTarefa = document.getElementById('nome-tarefa');
+        const inputNomeTarefa = document.getElementById('nome-tarefa');
 
-    console.log(inputNomeTarefa.value);
-    
-    if(tarefas.includes(inputNomeTarefa.value)){
-        alert(`Esta tarefa ${inputNomeTarefa.value} já foi incluida.`)
-    } else{
-    tarefas.push(inputNomeTarefa.value);
 
-    let linha = '<tr>'
-    linha += `<td>                              
+
+        if (tarefas.includes(inputNomeTarefa.value)) {
+            alert(`Esta tarefa ${inputNomeTarefa.value} já foi incluida.`)
+        } else {
+            tarefas.push(inputNomeTarefa.value);
+            const listaTarefas = $(`
+        <tr>
+            <td>                              
                 <div class="tarefa">
                     <label for="concluido" >${inputNomeTarefa.value}</label>
-                    </div>       
-                <td>`;
-    linha += `</tr>`;
-
-    linhas += linha;
-    }
-    inputNomeTarefa.value = '';
-}
-
-function atualizaTabela(){
-
-    const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = linhas;
-}
+                </div>       
+            <td>
+        </tr>`);
+            listaTarefas.appendTo('tbody');
 
 
-function concluido(){
-    $('tr').on('click', function() {
-        $('label').addClass('concluido');
+            listaTarefas.on('click', function () {
+                $(this).addClass('concluido');
+            });
+
+
+        }
+        inputNomeTarefa.value = '';
+
+
     });
-}
-
-
-
+});
